@@ -2,131 +2,126 @@
 
 
 //1.Create an array called ages that contains the following values:
-let ages = [3, 9, 23, 64, 2, 8, 28, 93]
-console.log("Question 1: ", ages);  //expected output: 3, 9, 23, 64, 2, 8, 28, 93
- 
-// 1.a. Programmatically subtract the value of the first element in the array
-// from the value of the last element in the array
+console.log("Question 1: ");
 
+let ages = [3, 9, 23, 64, 2, 8, 28, 93];
+console.log('Ages : ' + ages); //expected output: Ages: 3, 9, 23, 64, 2, 8, 28, 93
+
+
+//1.a. Programmatically subtract the value of the first element in the array
+// from the value of the last element in the array
+console.log('Question 1a: ', ages.slice(-1) - ages [0]);//expected output: 90
 // ages.slice(-1) is how to reference the last element in the array
-console.log("Question 1a: ",ages.slice(-1) - ages[0]);  //expected output: 90
+ 
+// alternate answer to 1a. : console.log(ages[ages.length - 1] - ages[0]); 
 
 // 1.b. Add a new age to ages array and repeat step 1.a. to ensure it is dynamic
 // (works for arrays of different lengths)
-
 ages.push(40);
-console.log("Question 1b:",ages.slice(-1) - ages[0]); //expected output: 37
+console.log( 'Question 1b:' , ages.slice(-1) - ages[0]); //expected output: 37
+
+
 
 // 1.c. Use a loop to iterate thru the array and
 // calculate the average age.
-
 // Use a loop (forLoop)
 // loop should iterate thru ages array
-let total = 0
-for(let index = 0; index < ages.length; index++){
-// calculate avg age
-// how to find out specific ages
-//console.log("index:",index, "specific age:", ages[index]);       //////The console.logging is here to check my steps
-//need to add ages together
-total += ages[index]; // starting at [0] it adds each element of the array 
-//console.log("total:", total);      ////The console.logging is here to check my steps
+let total = 0;
+for(let i = 0; i < ages.length; i++){
+  // how to find out specific ages
+  //console.log("index " , i, "specific age: ", ages[i]);
+  //need to add ages together:
+  total += ages[i];
+  //console.log("total: ", total);
 }
-//total/number of ages
+// calculate avg age
+// total/number of ages
+let avg = total/ages.length;
+console.log("Question 1c: ", avg);   //expected output: 30
 
-let avg = total /ages.length;
-console.log("Question 1c:", avg);
+//////////////////////////////////////////////
 
+// 2. Create an array called names that contains the following values: "Sam", "Tommy","Tim","Sally", "Buck", "Bob".
+console.log("Question 2: ")
 
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-
-// 2. Below, I created a names array and added elements to the array
-//Then, I created a function that uses the map method 
-// that prints (optional) the length of each element (numberOFLetters)
-var names = ["Sam", "Tommy","Tim","Sally", "Buck", "Bob"];
-console.log("Question 2: ", names);
-//let numberOfLetters = names.map(function( element) {
-//    return element.length;
-//});
-//console.log(numberOfLetters);
-//
-// for( i = 0; names < i; i++);
-//console.log(i);
-/////////////////////////////////////////////////////////////////////////////////////////////
+let names = ["Sam", "Tommy", "Tim", "Sally", "Buck", "Bob"];
+console.log(names);
 
 
+//2a. Use a loop to iterate thru the array and calculate the average
+// letters per name.
+console.log("Question 2a: ");
+
+let totalA = 0;
+for(let i = 0; i < names.length; i++){
+  totalA += names[i].length;
+ //console.log(totalA);
+}
+let avgLetters = totalA/ names.length;
+console.log("The average number of letters in this array is :", avgLetters);   //  expected output:  3.8333
 
 
+// 2b. Use a loop to iterate thru the array again and concatenate all the names together,
+// seperated by spaces.
+console.log("Question 2b: ");
 
-///////////////////////////////////////////////////
+for(i = 0; i < names.length; i++) {
+  console.log(names[0], ",", names[1],",", names[2],",", names[3],",", names[4],",", names[5],);
+}
+// expected output: Sam, Tommy, Tim, Sally, Buck, Bob
 
+/////////////////////////////////////////////////////////////////////////////////
+
+console.log("Question 3: ");
 // 3. How do you access the last element of any array?
 
-let colors = ['green', 'purple', 'blue',' black', 'brown'] ;
-let lastItem = colors.slice(-1);
-console.log("Question 3: ",lastItem);  //expected output: brown
+let colors = ['green', 'blue', 'black', 'brown'];
+console.log('Last element in the array:',colors[colors.length - 1]);   // expected output: brown
 
-////////////////////////////////////////////////////
+// alternate answer to 3:
+// let lastItem = colors.slice(-1);
+// console.log(lastItem);  
 
+////////////////////////////////////////////////////////////////////////////////
+
+console.log("Question 4: ");
 // 4. How do you access the first element of any array?
 
-let firstItem = colors[0];
-console.log("Question 4: ",firstItem);  //expected output: green
+console.log('First element in the array: ', colors[0]);   // expected output: green
 
-////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 
-// 5. Create a new array called nameLengths.
-// Write a loop to iterate over the previously created names 
-// array and add the length of each name to the 
-// namesLengths array
-
-let nameLengths = [] 
-   for(let index = 0; index < nameLengths; index++) {
-    console.log(index);
-   }
-
-
-
-
-
-
-//let nameLengths = [names.forEach ];
 console.log("Question 5: ");
-//names.forEach(element => console.log(element.length));
-// expected output: 3, 5, 3. 5, 4, 3
-//console.log(element.length );
-// my answer was based on the forEach method example
-// found on MDN website:
-//const array1 = ['a', 'b', 'c'];
-//array1.forEach(element => console.log(element));
+// 5. Create a new array called nameLengths.
+let namesLengths = [];
+// Write a loop to iterate over the previously created names 
+// array 
 
+for(let i = 0; i < names.length; i++){
+  //and add the length of each name to the // namesLengths array
+ // console.log("Name: ",names[i], ":",names[i].length, "letters" );
+namesLengths.push(names[i].length)
+}
+console.log('This array lists the length of each name in the names array: ', namesLengths);
+// expected output: [3,5,3,5,4,3]
 
-/////////////////////////////////////////////////////
+//names[i].length will print how many letters in each name (it prints the length of the element)
 
+///////////////////////////////////////////////////////////////////////////////////
+
+console.log("Question 6: ");
 // 6. Write a loop to iterate over the nameLengths array and 
 // calculate the sum of all the elements in the array.
 
-for (let index = 0; index < nameLengths; index++) {
-  
+total = 0;
+for( let i = 0; i < namesLengths.length; i++){
+      total += namesLengths[i]
 }
-console.log("Question 6: ");
+  console.log(total);     //expected output: 23
 
+//////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-//let i = (nameLengths.forEach);
-
-//nameLengths.forEach(element => console.log(element.length));
-  
-
-
-/////////////////////////////////////////////////////
-
+console.log("Question 7:" );
 // 7. Write a function that takes two parameters, 
 // word and n, as arguments and returns the 
 //word concatenated to itself n number of times
@@ -134,89 +129,138 @@ console.log("Question 6: ");
 // the function to return 'HelloHelloHello')
 //let n = 3
 
-
-
-// Write a function that takes two parameters
-
-let word = "Triplette";
-let n = 3;
+newString = 0
 function greet(word, n){
-  return word + 3 
+  for(i = 0; i < n; i++){
+    newString += word
+  }
+  console.log(newString);
 }
 
-console.log(greet());
-console.log("Question 7:" );
-/////////////////////////////////////////////////////
+greet('Triplette', 3);   // expected output: TripletteTripletteTriplette
+
+//////////////////////////////////////////////////////////////////////////////////
 
 // 8. Write a function that takes two parameters,
 // firstName and lastName, and returns a full name.
 // The full name should be the first and last name 
 // seperated by a space
-
-function createFullName(firstName, lastName){
+console.log('Question 8: ');
+function createFullName( firstName, lastName) {
   console.log(firstName + ' ' + lastName);
 }
-console.log("Question 8: ");
-createFullName('Jesus', 'Christ');  //expected output Jesus Christ
-createFullName('King', 'David');   //expected output King David
+createFullName('Jesus', 'Christ');   // expected output: Jesus Christ
+createFullName('King', 'David');   // expected output: King David
 
-////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 // 9. Write a function that takes an array of numbers 
 // and returns true if the sum of all the numbers in the array
 // is greater than 100
 
-let myNumbers = [25, 35, 45, 55, 65];
-
-function returnSum(myNumbers) {
-let returnSum = myNumbers
-  if (returnSum > 100) {
- return true;
-  }
- } 
-  returnSum();
-console.log(returnSum);
-
 console.log("Question 9:");
 
+let myNumbers = [25, 35, 45, 55];
+total = 0;
+function returnSum(){
+  for(let i = 0; i < myNumbers.length; i++) {
+    total += myNumbers[i];
+          // console.log("Index:", i, "My Number:", myNumbers[i], "Running Total:", total)
+  }   
+    if( total > 100) {
+    return true
+  }              
+    else{ return false}
+}
+console.log(returnSum());   //expected output: true
 
+//////////////////////////////////////////////////////////////////////////////
 
-
-//function sumOfNumbers(myNumbers){
-  //let myNumbers =
-//}
-
-/////////////////////////////////////////////////////
-
+console.log("Question 10:");
 // 10. Write a function that takes an array of numbers and 
 // returns the average of all the elements in the array.
+    
+let numberArray1 =[5, 10, 15, 20, 25];
+let sum = 0
+function avgElements( ) {
+  for(let i =0; i < numberArray1.length; i++) {
+    sum += numberArray1 [i];
+  }
+  return sum
+}
+console.log("The average of the array is: ", avgElements() / numberArray1.length);
+//  expected output: The average of the array is:  15
 
-//let avg = total / count;
-//console.log(ages);
-//let initialValue = 0;
-//let avgOfAges = ages.reduce(
-  //(accumulator, currentValue) => accumulator + currentValue,
-  //initialValue);
-  //console.log(avgOfAges / ages.length);
-//}
-//console.log(avgOfAges / ages.length);
-//console.log(ages);
-console.log("Question 10:");
-////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////
 
 // 11. Write a function that takes two arrays of numbers and
 // returns true if the average of the elements in the first 
 // array is greater than the average of the elements in the
 // second array.
-console.log("Question 11:");
-///////////////////////////////////////////////////////
 
+console.log("Question 11:");
+
+let arrayNum1 = [2, 4, 6, 8, 10, 12];
+let arrayNum2 = [ 1, 3, 5, 7, 9, 11];
+
+totalA = 0;
+totalB = 0;
+
+function compareArrays() {
+  for(let i = 0; i <arrayNum1.length; i++) {
+    totalA += arrayNum1[i];
+  }
+  for(let i = 0; i <arrayNum2.length; i++) {
+    totalB += arrayNum2[i];
+}
+console.log("The average of the first array: " + totalA / arrayNum1.length);
+console.log("The average of the second array: " + totalB / arrayNum2.length);
+if ( totalA / arrayNum1.length > totalB / arrayNum2.length){
+  return true
+}
+  else {
+    return false
+  }
+}
+console.log( "True or False. The average of the first array is greater than the second array:  ", compareArrays());
+
+//expected output:
+//The average of the first array: 7
+//The average of the second array: 6
+// True or False. The average of the first array is greater than the second array:   true
+
+////////////////////////////////////////////////////////////////////////////////////
+
+console.log("Question 12:");
 // 12. Write a function called willBuyDrink that takes a boolean
 // isHotOutside, and a number moneyInPocket, and returns true 
 // if it is hot outside and if moneyInPocket is greater than 10.50
-console.log("Question 12:");
-///////////////////////////////////////////////////////
+
+function willBuyDrink(isHotOutside, moneyInPocket){
+  if(isHotOutside = true && moneyInPocket > 10.5) {
+    console.log(willBuyDrink());
+  }
+  return true
+}
+
+willBuyDrink(true, 11); //expected output: true
+willBuyDrink(true, 1);  //expected output: no output
+willBuyDrink(true, 115);//expected output: true
+
+/////////////////////////////////////////////////////
 
 // 13. Create a function of your own that solves a problem
-
 console.log("Question 13:");
+
+function calculateRatio(numPatients, numNurses) {
+  if(numPatients > 40 || numNurses < 4) {
+    console.log("We need help!!! There's only " + numNurses + " nurses and there's " + numPatients +" patients!!!");
+  }
+  else {
+    console.log( "Easy money today, baby!!!");
+  }
+  return true
+}
+
+calculateRatio(55, 3);   //expected output:  We need help!!! There's only 3 nurses and there's 55 patients!!!
+calculateRatio(30, 4);    //expected output: "Easy money today, baby!!!"
